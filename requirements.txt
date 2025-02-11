@@ -93,7 +93,7 @@ langchain==0.0.332
 langcodes==3.3.0
 langsmith==0.0.52
 layoutparser==0.3.4
-loguru==0.7.2
+loguru==0.7.2ls
 lxml==4.9.3
 manifest-ml==0.0.1
 Markdown==3.4.4
