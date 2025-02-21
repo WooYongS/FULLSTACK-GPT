@@ -1,0 +1,29 @@
+Why are Prompt Templates useful?
+✅ They help us reuse prompts and format them with variables
+
+What is the difference between a PromptTemplate and a ChatPromptTemplate?
+✅ ChatPromptTemplate is to format chat messages and PromptTemplate is to format a string
+
+What does LCEL mean?
+✅ LangChain Expression Language
+
+Why do we use few-shot examples?
+✅ To give examples to the LLM on how to format the response
+
+What does the | operator do here?
+✅ It formats the prompt, sends it to the model and gives the output to the output parser
+
+What does RAG mean?
+✅ Retrieval Augmented Generation
+
+When do we need to do RAG?
+✅ When we want to use an LLM with data it was not trained with
+
+When doing RAG why do we need to split documents?
+✅ To embed the document in small chunks
+
+Why do we need to embed our documents?
+✅ To turn words into vectors and perform searches later
+
+Why do we use Vector Stores?
+✅ To store and search embeddings

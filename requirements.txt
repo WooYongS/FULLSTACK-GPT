@@ -18,7 +18,7 @@ blinker==1.6.2
 blis==0.7.10
 Brotli==1.1.0
 cachetools==5.3.1
-catalogue==2.0.9
+catalogue==2.0.9pip install "langchain-core==0.1.4"
 certifi==2023.7.22
 cffi==1.15.1
 chardet==5.2.0
