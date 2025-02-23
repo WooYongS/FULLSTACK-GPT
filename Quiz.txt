@@ -1,0 +1,31 @@
+Bitcoin Dominance Soars Higher — Adam Back Shares Take on Bybit Ethereum Hack
+
+
+U.Today - Adam Back, cypherpunk, Satoshi Nakamoto ally and Blockstream CEO, has taken to his X account to comment on the Bybit exchange exploit as hackers drained an enormous $1.4 billion of the second largest cryptocurrency Ethereum from the trading platform.
+
+Analysts believe that Bybit was attacked by the infamous hacker group Lazarus based in North Korea.
+
+Adam Back bashes Ethereum as Bybit gets hacked
+Prominent cypherpunk and Bitcoiner tweeted that now that the EVM contract has been hacked once again, “Bitcoin dominance ratches higher.”
+He quoted his own tweet published earlier today, where he slammed Ethereum and its EVM (Ethereum Virtual Machine) tech as “complex, fragile, blind-signed, un-securable.”
+
+He added that hackers have been draining from it “$billions per year for years straight.”
+
+Aside from Back, his former colleague, the ex-CSO at Blockstream and now the JAN3 CEO Samson Mow, tagged Vitalik Buterin proposing that he should roll back the Ethereum chain and hard-fork it so as not to let the North Korea hackers sell all the stolen ETH for $1.4 billion and use that money for the North Korean nuclear program.
+
+He reminded the community that in 2016, almost 10 years ago, Ethereum faced a hard fork after the DAO hack, when Buterin and the team decided to make a roll back. Ethereum then forked into Ethereum Classic (ETC) and Ethereum (ETH).
+
+It should be said that other major exchanges, such as Binance, Bitget and MEXC, have given loans to Bybit to support its liquidity — roughly 114,500 ETH and 12,652 stETH. Binance CEO Richart Teng and the former CEO CZ tweeted in support of Bybit.
+
+
+3rd party Ad. Not an offer or recommendation by Investing.com. See disclosure here or remove ads.
+Hackers converting Bybit ETH to Bitcoin
+Today, CEO and co-founder of Bybit Ben Zhou tweeted that the hackers have begun to launder the stolen Ethereum by converting it into Bitcoin via Chainflip. He addressed the bridge to help Bybit and block these transactions, as well as ones that the hackers may attempt to make to other chains.
+Zhou also said that Bybit intends to launch a bounty program, offering the community to help them “block or trace the funds that result in fund recovery.”
+
+The @lookonchain analytics account tweeted that Bybit was likely exploited by the same culprits who exploited the Phemex exchange for $69 million at the end of January.
+
+This article was originally published on U.Today
+
+Which stock should you buy in your very next trade?
+AI computing powers are changing the stock market. Investing.com's ProPicks AI includes 6 winning stock portfolios chosen by our advanced AI. In 2024 alone, ProPicks AI identified 2 stocks that surged over 150%, 4 additional stocks that leaped over 30%, and 3 more that climbed over 25%. Which stock will be the next to soar?
