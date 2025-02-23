@@ -27,10 +27,12 @@ if not openai_api_key:
 # llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key)
 # langchain과 openai의 버전 업데이트로 인해 ChatOpenAI이 proxies 인자를 지원하지 않음
 
+from langchain_openai import ChatOpenAI
+
 llm = ChatOpenAI(
-    model="gpt-4-turbo",  # 최신 모델 적용 가능 (gpt-4 또는 gpt-4-turbo)
+    model="gpt-4-turbo",
     temperature=0.5,
-    api_key=openai_api_key,  # 최신 버전에서는 `openai_api_key` 대신 `api_key` 사용
+    openai_api_key=openai_api_key,  # ✅ 최신 버전에서 `api_key` 대신 `openai_api_key` 사용
 )
 
 
