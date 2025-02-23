@@ -1,8 +1,10 @@
 import streamlit as st
 import json
-from langchain.chat_models import ChatOpenAI
+
+# from langchain.chat_models import ChatOpenAI
+from langchain_openai import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
-from langchain.retrievers import WikipediaRetriever
+from langchain_community.retrievers import WikipediaRetriever
 from PyPDF2 import PdfReader
 import docx
 
@@ -22,7 +24,14 @@ if not openai_api_key:
     st.stop()
 
 # Initialize LLM
-llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key)
+# llm = ChatOpenAI(temperature=0.5, openai_api_key=openai_api_key)
+# langchain과 openai의 버전 업데이트로 인해 ChatOpenAI이 proxies 인자를 지원하지 않음
+
+llm = ChatOpenAI(
+    model="gpt-4-turbo",  # 최신 모델 적용 가능 (gpt-4 또는 gpt-4-turbo)
+    temperature=0.5,
+    api_key=openai_api_key,  # 최신 버전에서는 `openai_api_key` 대신 `api_key` 사용
+)
 
 
 # Function to extract text from uploaded file
@@ -45,7 +54,7 @@ def extract_text_from_file(uploaded_file):
 # Function to fetch Wikipedia content (using WikipediaRetriever)
 def fetch_wikipedia_content(topic):
     retriever = WikipediaRetriever(top_k_results=1)  # 가장 관련 있는 문서 1개만 가져옴
-    docs = retriever.get_relevant_documents(topic)
+    docs = retriever.invoke(topic)  # ✅ 최신 LangChain에서는 invoke() 사용
 
     if docs:
         return docs[0].page_content  # 첫 번째 문서 내용 반환
