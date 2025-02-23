@@ -72,10 +72,18 @@ def generate_quiz(content, difficulty):
         Each question should have exactly 4 answer options.
         The answer must be based on the given content.
 
-        Return the quiz in JSON format as a list where each item contains:
-        - 'question': The quiz question
-        - 'options': A list of 4 options
-        - 'answer': The correct answer
+        **You must return the response in valid JSON format.**
+        The JSON should follow this exact structure:
+
+        ```json
+        [
+            {{"question": "What is 2+2?", "options": ["1", "2", "3", "4"], "answer": "4"}},
+            {{"question": "What is the capital of France?", "options": ["London", "Berlin", "Paris", "Rome"], "answer": "Paris"}}
+        ]
+        ```
+
+        Do not include any additional text or formatting.
+        Only return a valid JSON object.
 
         Content:
         {content}
@@ -87,7 +95,15 @@ def generate_quiz(content, difficulty):
     response = llm.invoke(formatted_prompt)
 
     try:
-        quiz_data = json.loads(response.content)
+        response_text = response.content.strip()
+
+        # OpenAI가 JSON을 올바르게 반환하지 않을 경우 대비하여 처리
+        if response_text.startswith("```json"):
+            response_text = response_text[7:]  # ```json 제거
+        if response_text.endswith("```"):
+            response_text = response_text[:-3]  # ``` 제거
+
+        quiz_data = json.loads(response_text)  # ✅ JSON 변환
 
         # 데이터 형식 검증
         if not isinstance(quiz_data, list) or not all(
