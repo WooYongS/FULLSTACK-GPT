@@ -18,9 +18,9 @@ with st.sidebar:
     difficulty = st.selectbox("Select Difficulty", ["Easy", "Medium", "Hard"])
     st.markdown("[GitHub Repository](https://github.com/your-repo-link)")
 
-# Ensure API key is provided
-if not openai_api_key:
-    st.error("Please enter your OpenAI API Key in the sidebar.")
+# ✅ API Key 유효성 검사 추가
+if not openai_api_key or openai_api_key.strip() == "":
+    st.error("🚨 OpenAI API Key를 입력해야 합니다!")
     st.stop()
 
 # Initialize LLM
@@ -29,10 +29,11 @@ if not openai_api_key:
 
 from langchain_openai import ChatOpenAI
 
+# ✅ API Key를 올바르게 전달 (proxies 문제 방지)
 llm = ChatOpenAI(
     model="gpt-4-turbo",
     temperature=0.5,
-    openai_api_key=openai_api_key,  # ✅ 최신 버전에서 `api_key` 대신 `openai_api_key` 사용
+    openai_api_key=openai_api_key.strip(),  # ✅ API Key 앞뒤 공백 제거하여 전달
 )
 
 
