@@ -1,0 +1,94 @@
+챌린지
+(EN)
+Implement QuizGPT but add the following features:
+
+Use function calling.
+Allow the user to customize the difficulty of the test and make the LLM generate hard or easy questions.
+Allow the user to retake the test if not all answers are correct.
+If all answers are correct use st.ballons.
+Allow the user to use its own OpenAI API Key, load it from an st.input inside of st.sidebar
+Using st.sidebar put a link to the Github repo with the code of your Streamlit app.
+(KR)
+QuizGPT를 구현하되 다음 기능을 추가합니다:
+
+함수 호출을 사용합니다.
+유저가 시험의 난이도를 커스터마이징 할 수 있도록 하고 LLM이 어려운 문제 또는 쉬운 문제를 생성하도록 합니다.
+만점이 아닌 경우 유저가 시험을 다시 치를 수 있도록 허용합니다.
+만점이면 st.ballons를 사용합니다.
+유저가 자체 OpenAI API 키를 사용하도록 허용하고, st.sidebar 내부의 st.input에서 로드합니다.
+st.sidebar를 사용하여 Streamlit app의 코드와 함께 Github 리포지토리에 링크를 넣습니다.
+
+
+TA's 힌트
+유저의 자체 OpenAI API 키를 사용하기 위해 st.text_input 등 을 이용하여 API 키를 입력받습니다. 그런 다음, ChatOpenAI 클래스를 사용할 때 해당 API 키를 openai_api_key 매개변수로 넘깁니다. (st.text_input 공식 문서)
+함수 호출 (Function Calling)을 활용하여 모델의 응답을 원하는 형식으로 변환합니다. (관련 문서 - Attaching OpenAI functions)
+유저가 시험의 난이도를 선택할 수 있도록 st.selectbox 를 사용합니다. (st.selectbox 공식 문서)
+퀴즈를 화면에 표시하여 유저가 풀 수 있도록 st.radio 를 사용합니다. (st.radio 공식 문서)
+만점 여부를 확인하기 위해 문제의 총 개수와 정답 개수가 같은지 비교합니다. 만약 같으면 st.balloons를 사용합니다. (st.balloons 공식 문서)
+
+
+
+--------
+
+Quiz GPT Solution
+
+
+https://github.com/fullstack-gpt-python/assignment-16/blob/main/app.py
+https://assignment-16-jyjgz9gtyuywgwrq3dbaan.streamlit.app/
+OpenAI API 키 입력 받기
+st.text_input을 사용하여 유저로부터 OpenAI API 키를 입력받습니다.
+입력받은 API 키는 ChatOpenAI 클래스를 사용할 때 openai_api_key 매개변수로 넘깁니다.
+퀴즈 생성 함수 스키마 정의
+함수 호출에 사용할 퀴즈 생성 함수를 정의합니다.
+이 함수는 ChatOpenAI를 초기화할 때 bind 하여 llm이 이 함수를 필수로 사용할 수 있도록 지정합니다.
+파일 업로드 및 위키피디아
+st.selectbox를 사용하여 파일을 기반으로 퀴즈를 만들지, 위키피디아를 기반으로 퀴즈를 만들지 선택할 수 있도록 합니다.
+파일을 선택한다면 st.file_uploader를 사용하여 유저로부터 파일을 입력받고 해당 파일을 CharacterTextSplitter를 이용하여 split 합니다.
+위키피디아를 선택한다면 st.text_input를 사용하여 유저로부터 topic을 입력받고, 해당 주제를 기반으로 문서를 검색합니다.
+난이도 선택
+st.selectbox를 사용하여 난이도를 EASY, HARD 중에 하나를 선택할 수 있도록 합니다.
+퀴즈 생성
+파일 혹은 위키피디아를 통해 만들어진 문서(docs)와 선택된 난이도(level)을 이용하여 퀴즈를 생성합니다.
+함수 호출을 활용하여 만들어진 응답에서 매개변수를 추출하고 json으로 로드하여 파이썬에서 사용할 수 있는 객체로 변환합니다.
+만들어진 퀴즈를 st.radio 등을 이용하여 화면에 표시하여 유저가 풀 수 있도록 합니다.
+퀴즈 만점일 때 화면에 풍선 표시
+퀴즈의 총 개수를 question_count, 유저가 맞춘 퀴즈의 개수를 success_count로 합니다.
+question_count == success_count라면 유저가 모든 문제를 맞추었다는 의미이므로 st.balloons를 사용하여 화면에 풍선을 표시합니다.
+결론
+파일 업로드 및 위키피디아 검색을 통해 문서를 로드하고, 로드된 문서를 기반으로 함수 호출을 활용하여 퀴즈를 생성하는 과정을 구현해보는 챌린지였습니다.
+
+SiteGPT
+오늘의 강의: 풀스택 GPT: #10.0부터 ~ #10.6까지
+오늘의 과제: 위의 강의를 시청하신 후, 아래 코드 챌린지를 제출하면 됩니다.
+제출기간: 2일 챌린지! 수요일 오전 6시까지
+챌린지:
+(EN)
+Build a SiteGPT version for Cloudflare's documentation.
+The chat bot should be able to answers questions about the documentation of each one of these products:
+AI Gateway
+Cloudflare Vectorize
+Workers AI
+Use the sitemap to find all the documentation pages for each product.
+Your submission will be tested with the following questions:
+"What is the price per 1M input tokens of the llama-2-7b-chat-fp16 model?"
+"What can I do with Cloudflare’s AI Gateway?"
+"How many indexes can a single account have in Vectorize?"
+Allow the user to use its own OpenAI API Key, load it from an st.input inside of st.sidebar
+Using st.sidebar put a link to the Github repo with the code of your Streamlit app.
+(KR)
+Cloudflare 공식문서를 위한 SiteGPT 버전을 만드세요.
+챗봇은 아래 프로덕트의 문서에 대한 질문에 답변할 수 있어야 합니다:
+AI Gateway
+Cloudflare Vectorize
+Workers AI
+사이트맵을 사용하여 각 제품에 대한 공식문서를 찾아보세요.
+여러분이 제출한 내용은 다음 질문으로 테스트됩니다:
+"llama-2-7b-chat-fp16 모델의 1M 입력 토큰당 가격은 얼마인가요?"
+"Cloudflare의 AI 게이트웨이로 무엇을 할 수 있나요?"
+"벡터라이즈에서 단일 계정은 몇 개의 인덱스를 가질 수 있나요?"
+유저가 자체 OpenAI API 키를 사용하도록 허용하고, st.sidebar 내부의 st.input에서 이를 로드합니다.
+st.sidebar를 사용하여 Streamlit app과 함께 깃허브 리포지토리에 링크를 넣습니다.
+제출방법
+이전 과제와 동일한 방식으로 앱을 Streamlit cloud 에 배포합니다.
+제출은 streamlit.app URL로 이루어져야 합니다.
+제출기간: 2일 챌린지! 수요일 오전 6시까지
