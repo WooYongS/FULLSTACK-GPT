@@ -2,6 +2,8 @@
 streamlit==1.32.0
 openai==1.12.0
 
+beautifulsoup4==4.12.2
+
 
 # LangChain & Dependencies (최신 버전 및 충돌 해결)
 langchain==0.1.15
