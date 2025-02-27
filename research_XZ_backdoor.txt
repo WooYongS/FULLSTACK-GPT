@@ -1,0 +1,1 @@
+The XZ backdoor is a specific cybersecurity threat involving malicious code in versions 5.6.0 and 5.6.1 of XZ Utils that allowed unauthorized remote access by altering sshd. It was identified before widespread deployment and therefore did not notably impact users. Stakeholders are advised to use version 5.4 or other secure versions of XZ Utils.

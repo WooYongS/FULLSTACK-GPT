@@ -6,11 +6,12 @@ beautifulsoup4==4.12.2
 
 
 # LangChain & Dependencies (최신 버전 및 충돌 해결)
-langchain==0.1.15
-langchain-core>=0.1.30,<0.2
-langchain-community==0.0.37
-langsmith>=0.1.10,<0.2
-langchain-openai==0.0.7
+# langchain==0.1.17  # ✅ 최신 안정 버전 적용
+# langchain-core>=0.1.48,<0.2.0  # ✅ 버전 범위 조정하여 충돌 해결
+# langchain-community==0.0.38  # ✅ 최신 안정 버전 적용
+# langchain-openai==0.3.5  # ✅ 최신 안정 버전 적용
+# langsmith>=0.1.10,<0.2
+
 
 # Wikipedia 검색 관련 패키지
 wikipedia-api==0.6.0
@@ -29,7 +30,7 @@ numpy==1.26.4
 tqdm==4.67.1
 tenacity==8.3.0
 
-
+pydantic==2.6.3  # ✅ pydantic 최신 버전 적용
 
 # aiofiles==23.2.1
 # aiohttp==3.8.5
